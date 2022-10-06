@@ -1,0 +1,50 @@
+<div class="ant-modal-header" style="display: flex;justify-content: space-between;">
+    <h3>Add Bookmark</h3>
+</div>
+
+<form action="" [formGroup]="frm" (submit)="onSubmit()" style="margin-top: 1rem;">
+<div nz-row nzGutter="8">
+    <div nz-col  nzXs="24" nzSm="24" nzMd="16" nzLg="16">
+        <nz-form-item>
+            <nz-form-control nzHasFeedback nzErrorTip="Title Required And Max 30 Characters!" nzXs="24" nzSm="24" nzMd="24" nzLg="24">
+            <input type="text" maxlength="30"  nz-input id="title" name="title" class="form-control" placeholder="Title" formControlName="title">
+            </nz-form-control>
+        </nz-form-item> 
+    </div>
+    <div nz-col  nzXs="24" nzSm="24" nzMd="16" nzLg="16">
+        <nz-form-item>
+            <nz-form-control nzHasFeedback nzErrorTip="Valid Url Required!" nzXs="24" nzSm="24" nzMd="24" nzLg="24">
+            <input type="text" nz-input id="url" name="url" class="form-control" placeholder="Url" formControlName="url">
+            </nz-form-control>
+        </nz-form-item> 
+    </div>
+
+    <div nz-col  nzXs="24" nzSm="24" nzMd="16" nzLg="16">
+            <nz-form-item>
+                    <nz-form-control nzHasFeedback nzErrorTip="Category!" nzXs="24" nzSm="24" nzMd="20" nzLg="20">
+                        <nz-select [nzDisabled]="isDisable"  nzShowSearch nzAllowClear  nzPlaceHolder="Category" formControlName="categoryName" placeholder="Category" name="categoryName">
+                            <nz-option *ngFor="let c of catList" [nzLabel]="c.categoryName" [nzValue]="c.categoryName"></nz-option>               
+                        </nz-select> 
+                    </nz-form-control>
+                    <nz-form-control nzXs="4" nzSm="4" nzMd="4" nzLg="4">
+                        <button style="margin-left: 0.5rem;" nz-button (click)="onAddCategory()"><span nz-icon nzType="plus-square" nzTheme="outline"></span></button> 
+                    </nz-form-control>
+              </nz-form-item>    
+    
+    </div>
+
+    <div nz-col  nzXs="24" nzSm="24" nzMd="16" nzLg="16" *ngIf="isDisable">
+        <nz-form-item>
+            <nz-form-control nzHasFeedback nzErrorTip="Category Name!" nzXs="24" nzSm="24" nzMd="24" nzLg="24">
+            <input type="text" nz-input id="categoryName" name="categorName" class="form-control" placeholder="Category Name" formControlName="categoryName">
+            </nz-form-control>
+        </nz-form-item> 
+    </div>
+   
+</div>
+
+<div nz-row style="display: flex;justify-content:space-between;">
+        <button style=" margin: 0 1.2rem 1rem 0.8rem;" nz-button>Cancel</button>
+        <button style=" margin: 0 1.2rem 1rem 0.8rem;" nz-button nzType="primary" [disabled]="frm.invalid">Save</button>
+</div>
+</form>

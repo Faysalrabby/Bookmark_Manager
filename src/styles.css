@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+.ant-modal-body{
+  padding: 0 !important;
+}
+
+.ant-input-affix-wrapper{
+  border: 0 !important;
+}
+
+.ant-modal-footer{
+  display: none !important;
+}

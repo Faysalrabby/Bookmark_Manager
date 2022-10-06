@@ -1,0 +1,39 @@
+
+ <nz-card  [nzTitle]="title" [nzExtra]="extraTemplate" >
+    <div nz-row >
+        <div nz-col  nzXs="24" nzSm="24" nzMd="12" nzLg="12">
+            <nz-card style="width: 300px;margin: 2rem 0;" [nzTitle]="c.categoryName" *ngFor="let c of listOfDisplayData" >
+                <div style="display: flex;justify-content:space-between" *ngFor="let d of c.detail" (mouseenter)="mouseOver(d)" (mouseleave)="mouseLeave(d)">
+                    <p>{{d?.title}}</p>
+                    <p><button nz-button nzSize="small" (click)="onDetails(d)">Details</button></p>
+                </div>
+            </nz-card>
+        </div>
+
+        <div nz-col  nzXs="24" nzSm="24" nzMd="12" nzLg="12">
+            <nz-card  style="width: 300px; display: grid;" *ngIf="isVisible">
+                <div>{{detailscomponent.title}}</div>
+                <div>{{detailscomponent.url}}</div>
+                <div>{{detailscomponent.categoryName}}</div>
+            </nz-card>
+        </div>
+        
+    </div>
+
+   
+   
+
+</nz-card>
+
+
+
+<ng-template #extraTemplate>
+<button nz-button (click)="onClear()">Storage Clear</button>
+<button nz-button nzType="primary" (click)="onAddBookmark(null)">Add Bookmark</button>
+</ng-template>
+
+<!-- <div nz-row>
+<div nz-col nzXs="2" nzSm="4" nzMd="6" nzLg="8" nzXl="10">Col</div>
+<div nz-col nzXs="20" nzSm="16" nzMd="12" nzLg="8" nzXl="4">Col</div>
+<div nz-col nzXs="2" nzSm="4" nzMd="6" nzLg="8" nzXl="10">Col</div>
+</div> -->
